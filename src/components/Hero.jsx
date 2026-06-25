@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import doctorPhoto from '../assets/doctor.jpg';
 import './Hero.css';
 
 const particles = Array.from({ length: 20 }, (_, i) => ({
@@ -59,6 +60,8 @@ const Hero = () => {
 
       <div className="container">
         <div className="hero-content">
+
+          {/* ── Left: Text ── */}
           <div className="hero-left">
             <div className="nabl-badge">
               <span className="badge-dot"></span>
@@ -107,73 +110,76 @@ const Hero = () => {
                 </svg>
                 Contact Us
               </button>
-              <button
-                className="btn-secondary"
-                id="hero-services-btn"
-                onClick={() => scrollTo('services')}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5z"/>
+              <div className="hero-timings">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="timings-icon">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
                 </svg>
-                Our Services
-              </button>
+                <div className="timings-text">
+                  <span className="timings-label">Timings</span>
+                  <span className="timings-value">Mon – Sat: 8:30 AM – 8:00 PM</span>
+                </div>
+              </div>
             </div>
           </div>
 
+          {/* ── Right: Doctor Circle + Floating Cards ── */}
           <div className="hero-right">
             <div className="hero-visual">
-              <div className="lab-card">
-                <div className="lab-icon-wrap">
-                  <svg width="60" height="60" viewBox="0 0 64 64" fill="none">
-                    <circle cx="32" cy="32" r="30" stroke="rgba(0,180,216,0.4)" strokeWidth="1.5"/>
-                    <path d="M20 14h24M32 14v12l10 18H22L32 26V14" stroke="#00b4d8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <circle cx="26" cy="46" r="2" fill="#00b4d8" fillOpacity="0.7"/>
-                    <circle cx="32" cy="48" r="2" fill="#48cae4"/>
-                    <circle cx="38" cy="46" r="2" fill="#00b4d8" fillOpacity="0.7"/>
-                    <path d="M18 40h28" stroke="rgba(0,180,216,0.3)" strokeWidth="1" strokeDasharray="3 3"/>
+
+              {/* Large circular doctor photo */}
+              <div className="doctor-circle-wrap">
+                <div className="doctor-circle-ring ring-outer"></div>
+                <div className="doctor-circle-ring ring-inner"></div>
+                <img
+                  src={doctorPhoto}
+                  alt="Dr. Simple Bhuptani – MD Pathology"
+                  className="doctor-circle-img"
+                />
+              </div>
+
+              {/* Floating card — top right */}
+              <div className="hero-float-card card-cases">
+                <div className="float-card-icon icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#22c55e">
+                    <path d="M12 2l2.09 6.26H21l-5.47 3.97 2.09 6.26L12 14.52l-5.62 4.07 2.09-6.26L3 8.26h6.91z"/>
                   </svg>
                 </div>
-                <h3>Advanced Lab Analysis</h3>
-                <p>State-of-the-art equipment for precise histopathological examination</p>
-                <div className="lab-indicators">
-                  <span className="indicator active"></span>
-                  <span className="indicator active"></span>
-                  <span className="indicator active"></span>
-                  <span className="indicator"></span>
+                <div className="float-card-text">
+                  <strong>Histopathology</strong>
+                  <strong>&amp; Cytology</strong>
                 </div>
               </div>
 
-              <div className="floating-badge badge-nabl">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#c9a227">
-                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                </svg>
-                <div>
-                  <strong>NABL</strong>
-                  <small>Certified</small>
+              {/* Floating card — bottom left */}
+              <div className="hero-float-card card-experience">
+                <div className="float-card-icon icon-blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#3b82f6">
+                    <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+                  </svg>
                 </div>
-              </div>
-
-              <div className="floating-badge badge-experience">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#00b4d8">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
-                </svg>
-                <div>
+                <div className="float-card-text">
                   <strong>25+ Years</strong>
-                  <small>Expert Pathology</small>
+                  <small>Experience</small>
                 </div>
               </div>
 
-              <div className="floating-badge badge-timing">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="#2e7d32">
-                  <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
-                </svg>
-                <div>
-                  <strong>8:30 AM – 8 PM</strong>
-                  <small>Mon – Sat</small>
+              {/* Floating card — bottom right */}
+              <div className="hero-float-card card-specialty">
+                <div className="float-card-icon icon-cyan">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#00b4d8">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                  </svg>
+                </div>
+                <div className="float-card-text">
+                  <strong>MD Pathology</strong>
+                  <small>Specialist</small>
                 </div>
               </div>
+
             </div>
           </div>
+
         </div>
       </div>
 

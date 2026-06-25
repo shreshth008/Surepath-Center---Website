@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import logo from '../assets/logo_clean.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -9,9 +10,8 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
-
       const sections = ['home', 'about', 'services', 'why-us', 'contact'];
-      for (const id of sections.reverse()) {
+      for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
           setActiveSection(id);
@@ -39,14 +39,15 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-inner container">
+
+        {/* Logo + Hospital Name */}
         <a className="navbar-brand" href="#home" onClick={() => handleNavClick('#home')}>
-          <div className="brand-icon">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-              <circle cx="14" cy="14" r="13" stroke="white" strokeWidth="1.5"/>
-              <path d="M14 6v16M6 14h16" stroke="#00b4d8" strokeWidth="2.5" strokeLinecap="round"/>
-              <circle cx="14" cy="14" r="4" fill="#00b4d8" fillOpacity="0.3"/>
-            </svg>
-          </div>
+          <img
+            src={logo}
+            alt="Surepath Center Logo"
+            className="brand-logo-img"
+          />
+          <div className="brand-divider"></div>
           <div className="brand-text">
             <span className="brand-name">Surepath Center</span>
             <span className="brand-tagline">Histopathology & Cytology</span>

@@ -29,28 +29,40 @@
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.brand-icon {
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(135deg, rgba(0,180,216,0.2), rgba(0,150,199,0.3));
-  border: 1.5px solid rgba(0,180,216,0.4);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
+/* Logo - custom styled and enlarged */
+.brand-logo-img {
+  height: 56px;
+  width: auto;
+  max-width: 68px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
 }
 
-.navbar-brand:hover .brand-icon {
-  background: rgba(0,180,216,0.3);
-  transform: scale(1.05);
+/* Maintain color consistency and size */
+.navbar.scrolled .brand-logo-img {
+  opacity: 0.95;
 }
 
+.navbar-brand:hover .brand-logo-img {
+  opacity: 0.85;
+}
+
+/* Vertical divider */
+.brand-divider {
+  width: 1px;
+  height: 34px;
+  background: rgba(255,255,255,0.3);
+  flex-shrink: 0;
+}
+
+/* Hospital name + tagline text */
 .brand-text {
   display: flex;
   flex-direction: column;
@@ -58,19 +70,20 @@
 
 .brand-name {
   font-family: 'Outfit', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1;
+  line-height: 1.15;
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 .brand-tagline {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: rgba(0,180,216,0.9);
   font-weight: 500;
-  letter-spacing: 0.03em;
-  margin-top: 2px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 /* Nav Links */
@@ -187,6 +200,9 @@
 @media (max-width: 768px) {
   .hamburger { display: flex; }
 
+  /* Hide tagline on tablet/mobile to save space */
+  .brand-tagline { display: none; }
+
   .nav-links {
     position: fixed;
     top: 0;
@@ -219,4 +235,12 @@
     justify-content: center;
     margin-top: 8px !important;
   }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+  /* Hide divider and brand name too — just show logo */
+  .brand-divider { display: none; }
+  .brand-name { font-size: 0.85rem; }
+  .brand-logo-img { height: 44px; max-width: 54px; }
 }

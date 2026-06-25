@@ -19,17 +19,18 @@
 .footer-brand {}
 
 .footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  display: inline-block;
+  background: rgba(255,255,255,0.96);
+  border-radius: 10px;
+  padding: 8px 14px;
+  margin-bottom: 14px;
 }
 
-.footer-logo span {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #fff;
+.footer-logo-img {
+  height: 52px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .footer-tagline {

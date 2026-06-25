@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/logo_clean.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -12,12 +13,7 @@ const Footer = () => {
             {/* Brand */}
             <div className="footer-brand">
               <div className="footer-logo">
-                <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
-                  <circle cx="14" cy="14" r="13" stroke="rgba(0,180,216,0.5)" strokeWidth="1.5"/>
-                  <path d="M14 6v16M6 14h16" stroke="#00b4d8" strokeWidth="2.5" strokeLinecap="round"/>
-                  <circle cx="14" cy="14" r="4" fill="#00b4d8" fillOpacity="0.25"/>
-                </svg>
-                <span>Surepath Center</span>
+                <img src={logo} alt="Surepath Center" className="footer-logo-img" />
               </div>
               <p className="footer-tagline">
                 NABL Accredited Center for Histopathology & Cytology
